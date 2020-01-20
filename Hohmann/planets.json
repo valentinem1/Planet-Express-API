@@ -1,0 +1,77 @@
+{
+   "planets": {
+      "Mercury": {
+         "Orbit r AU": 0.387,
+         "Orbit Period Years": 0.241,
+         "Orbit Velocity AU/Yr": 10.099,
+         "Mean long J2000": 252.251,
+         "Mass (kg)": 330000000000000000000000,
+         "planet r (km)": 2440,
+         "SOI (km)": 111631
+      },
+      "Venus": {
+         "Orbit r AU": 0.723,
+         "Orbit Period Years": 0.615,
+         "Orbit Velocity AU/Yr": 7.388,
+         "Mean long J2000": 181.980,
+         "Mass (kg)": 4869000000000000000000000,
+         "planet r (km)": 6052,
+         "SOI (km)": 612171
+      },
+      "Earth": {
+         "Orbit r AU": 1,
+         "Orbit Period Years": 1,
+         "Orbit Velocity AU/Yr": 6.283,
+         "Mean long J2000": 100.464,
+         "Mass (kg)": 5982000000000000000000000,
+         "planet r (km)": 6378,
+         "SOI (km)": 918347
+      },
+      "Mars": {
+         "Orbit r AU": 1.524,
+         "Orbit Period Years": 1.881,
+         "Orbit Velocity AU/Yr": 5.090,
+         "Mean long J2000": 355.453,
+         "Mass (kg)": 642190000000000000000000,
+         "planet r (km)": 3397,
+         "SOI (km)": 573473
+      },
+      "Jupiter": {
+         "Orbit r AU": 5.203,
+         "Orbit Period Years": 11.869,
+         "Orbit Velocity AU/Yr": 2.754,
+         "Mean long J2000": 34.404,
+         "Mass (kg)": 1900000000000000000000000000,
+         "planet r (km)": 71492,
+         "SOI (km)": 47901004
+      },
+      "Saturn": {
+         "Orbit r AU": 9.537,
+         "Orbit Period Years": 29.453,
+         "Orbit Velocity AU/Yr": 2.035,
+         "Mean long J2000": 49.944,
+         "Mass (kg)": 568000000000000000000000000,
+         "planet r (km)": 60268,
+         "SOI (km)": 54164329
+      },
+      "Uranus": {
+         "Orbit r AU": 19.191,
+         "Orbit Period Years": 84.073,
+         "Orbit Velocity AU/Yr": 1.434,
+         "Mean long J2000": 313.232,
+         "Mass (kg)": 86830000000000000000000000,
+         "planet r (km)": 25559,
+         "SOI (km)": 51419820
+      },
+      "Neptune": {
+         "Orbit r AU": 30.069,
+         "Orbit Period Years": 164.884,
+         "Orbit Velocity AU/Yr": 1.146,
+         "Mean long J2000": 304.880,
+         "Mass (kg)": 102470000000000000000000000,
+         "planet r (km)": 24766,
+         "SOI (km)": 86082764
+      }
+   }
+}
+

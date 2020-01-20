@@ -9,3 +9,4 @@ class TicketsController < ApplicationController
         render json: ticket
     end
 end
+

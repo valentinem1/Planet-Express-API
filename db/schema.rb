@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 2020_01_17_215956) do
 
   create_table "flights", force: :cascade do |t|
     t.bigint "planet_id", null: false
-    t.string "ship"
-    t.integer "speed"
+    t.string "ship_name"
     t.integer "capacity"
-    t.datetime "departure_date"
+    t.datetime "departure"
+    t.datetime "arrival"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["planet_id"], name: "index_flights_on_planet_id"
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2020_01_17_215956) do
 
   create_table "planets", force: :cascade do |t|
     t.string "name"
-    t.integer "distance"
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
