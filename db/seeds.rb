@@ -13,35 +13,35 @@ Planet.destroy_all
 planets = {
    mercury: {
       name: "Mercury",
-      image: ""
+      image: "https://cnet4.cbsistatic.com/img/eNbe9KkmNAYVSuw0ORDdAGX2oZA=/2019/11/07/cd0b412a-fa1a-4b59-8318-ad1d65234af3/nasamercury.jpg"
    },
    venus: {
       name: "Venus",
-      image: ""
+      image: "https://www.universetoday.com/wp-content/uploads/2017/08/venus-e1502994496509.jpg"
    },
    earth: {
       name: "Earth",
-      image: ""
+      image: "https://media.npr.org/assets/img/2013/03/06/bluemarble3k-smaller-nasa_custom-644f0b7082d6d0f6814a9e82908569c07ea55ccb-s800-c85.jpg"
    },
    mars: {
       name: "Mars",
-      image: ""
+      image: "https://www.classicalwcrb.org/sites/wcrb/files/styles/medium/public/201609/mars-614x412.jpg"
    },
    jupiter: {
       name: "Jupiter",
-      image: ""
+      image: "https://cosmos-magazine.imgix.net/file/spina/photo/10734/170613_Jupiter_Full.jpg?fit=clip&w=835"
    },
    saturn: {
       name: "Saturn",
-      image: ""
+      image: "https://mk0astronomynow9oh6g.kinstacdn.com/wp-content/uploads/2019/06/Saturn_at_opposition_9Jul2019_1564x1173.png"
    },
    uranus: {
       name: "Uranus",
-      image: ""
+      image: "https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fstartswithabang%2Ffiles%2F2019%2F01%2Furanus-1200x800.jpg"
    },
    neptune: {
       name: "Neptune",
-      image: ""
+      image: "https://s3.amazonaws.com/images.spaceref.com/news/2019/ooneptune.jpg"
    }
 }
 
