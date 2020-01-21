@@ -1,5 +1,5 @@
 class FlightSerializer < ActiveModel::Serializer
-  attributes :id, :departure, :arrival, :capacity, :remaining_tickets, :ship_name, :origin, :destination, :days
-  # has_many :tickets
+  attributes :id, :origin, :departure, :destination, :arrival, :capacity, :remaining_tickets, :days, :ship_name
+  # need to limit the info about origin and destination planets to just id and maybe name
 end
 
