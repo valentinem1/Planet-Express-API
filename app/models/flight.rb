@@ -10,3 +10,4 @@ class Flight < ApplicationRecord
   end
 
 end
+

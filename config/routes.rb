@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   end
 
   resources :planets do
-    resources :flights
+    resources :departing_flights
+    resources :arriving_flights
   end
 
 end

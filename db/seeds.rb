@@ -82,6 +82,18 @@ ships = [
    {
       name: "Spacex Starship",
       capacity: 100
+   },
+   {
+      name: "Tardis",
+      capacity: 30
+   },
+   {
+      name: "Heart of Gold",
+      capacity: 50
+   },
+   {
+      name: "Discovery",
+      capacity: 50
    }
 ]
 
@@ -189,6 +201,7 @@ transfers = [
 first_year = 2020
 last_year = 2050
 
+# create Flights
 transfers.each do |transfer|
    transfer_date = transfer[:date]
    days = transfer[:days]
