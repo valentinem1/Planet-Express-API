@@ -51,8 +51,8 @@ earth = Planet.create(planets[:earth])
 mars = Planet.create(planets[:mars])
 jupiter = Planet.create(planets[:jupiter])
 saturn = Planet.create(planets[:saturn])
-# uranus = Planet.create(planets[:uranus])
-# neptune = Planet.create(planets[:neptune])
+uranus = Planet.create(planets[:uranus])
+neptune = Planet.create(planets[:neptune])
 
 ships = [
    {
@@ -87,35 +87,103 @@ ships = [
 
 transfers = [
    {
-      planet: mercury,
+      origin: earth,
+      destination: mercury,
       date: Date.new(2020, 4, 7),
       interval: 115.7779,
-      time: 106
+      days: 106
    },
    {
-      planet: venus,
+      origin: earth,
+      destination: venus,
       date: Date.new(1999, 5, 25),
       interval: 583.5255,
-      time: 146
+      days: 146
    },
    {
-      planet: mars,
+      origin: earth,
+      destination: mars,
       date: Date.new(2001, 4, 1),
       interval: 779.421,
-      time: 259
+      days: 259
    },
    {
-      planet: jupiter,
+      origin: earth,
+      destination: jupiter,
       date: Date.new(1999, 7, 3),
       interval: 398.5800,
-      time: 997
+      days: 997
    },
    {
-      planet: saturn,
+      origin: earth,
+      destination: saturn,
       date: Date.new(1999, 7, 19),
       interval: 377.8114,
-      time: 2207
-   }     
+      days: 2207
+   },
+   {
+      origin: earth,
+      destination: uranus,
+      date: Date.new(2000, 4, 14),
+      interval: 369.38,
+      days: 5858
+   },
+   {
+      origin: earth,
+      destination: neptune,
+      date: Date.new(2000, 4, 3),
+      interval: 367.2265,
+      days: 11181
+   },
+   {
+      origin: mercury,
+      destination: earth,
+      date: Date.new(1999, 10, 18),
+      interval: 115.7779,
+      days: 106
+   },
+   {
+      origin: venus,
+      destination: earth,
+      date: Date.new(1999, 6, 23),
+      interval: 583.5255,
+      days: 146
+   },
+   {
+      origin: mars,
+      destination: earth,
+      date: Date.new(2001, 1, 25),
+      interval: 779.421,
+      days: 259
+   },
+   {
+      origin: jupiter,
+      destination: earth,
+      date: Date.new(2000, 8, 21),
+      interval: 398.5800,
+      days: 997
+   },
+   {
+      origin: saturn,
+      destination: earth,
+      date: Date.new(2000, 4, 28),
+      interval: 377.8114,
+      days: 2207
+   },
+   {
+      origin: uranus,
+      destination: earth,
+      date: Date.new(2000, 1, 20),
+      interval: 369.38,
+      days: 5858
+   },
+   {
+      origin: neptune,
+      destination: earth,
+      date: Date.new(2000, 6, 15),
+      interval: 367.2265,
+      days: 11181
+   }
 ]
 
 first_year = 2020
@@ -123,93 +191,21 @@ last_year = 2050
 
 transfers.each do |transfer|
    transfer_date = transfer[:date]
-   travel_time = transfer[:time]
+   days = transfer[:days]
    while transfer_date.year <= last_year do
       ship = ships.sample
       if transfer_date.year >= first_year
          Flight.create(
-            planet: transfer[:planet], 
+            origin: transfer[:origin],
+            destination: transfer[:destination], 
             ship_name: ship[:name], 
             capacity: ship[:capacity], 
-            departure: transfer_date, 
-            arrival: (transfer_date+travel_time)
+            departure: transfer_date,
+            days: days,
+            arrival: (transfer_date+days)
          )
       end
       transfer_date += transfer[:interval]
    end
 end
 
-# mercury_transfer: Date.new(2020, 4, 7)
-# travel_time = 106
-# while mercury_transfer.year <= 2100 do
-#    if mercury_transfer.year >= 2020
-#       Flight.create(
-#          planet: mercury, 
-#          ship_name: ships.sample, 
-#          capacity: 20, 
-#          departure: mercury_transfer, 
-#          arrival: (mercury_transfer+travel_time)
-#       )
-#    end
-#    mercury_transfer += 115.7779
-# end
-
-# venus_transfer = Date.new(1999, 5, 25)
-# travel_time = 146
-# while venus_transfer.year <= 2100 do
-#    if venus_transfer.year >= 2020
-#       Flight.create(
-#          planet: venus, 
-#          ship_name: ships.sample, 
-#          capacity: 20, 
-#          departure: venus_transfer, 
-#          arrival: (venus_transfer+travel_time)
-#       )
-#    end
-#    venus_transfer += 583.5255
-# end
-
-# mars_transfer = Date.new(2001, 4, 1)
-# travel_time = 259
-# while mars_transfer.year <= 2100 do
-#    if mars_transfer.year >= 2020
-#       Flight.create(
-#          planet: mars, 
-#          ship_name: ships.sample, 
-#          capacity: 20, 
-#          departure: mars_transfer, 
-#          arrival: (mars_transfer+travel_time)
-#       )
-#    end
-#    mars_transfer += 779.421
-# end
-
-# jupiter_transfer = Date.new(1999, 7, 3)
-# travel_time = 997
-# while jupiter_transfer.year <= 2100 do
-#    if jupiter_transfer.year >= 2020
-#       Flight.create(
-#          planet: jupiter, 
-#          ship_name: ships.sample, 
-#          capacity: 20, 
-#          departure: jupiter_transfer, 
-#          arrival: (jupiter_transfer+travel_time)
-#       )
-#    end
-#    jupiter_transfer += 398.5800
-# end
-
-# saturn_transfer = Date.new(1999, 7, 19)
-# travel_time = 2207
-# while saturn_transfer.year <= 2100 do
-#    if saturn_transfer.year >= 2020
-#       Flight.create(
-#          planet: saturn, 
-#          ship_name: ships.sample, 
-#          capacity: 20, 
-#          departure: saturn_transfer, 
-#          arrival: (saturn_transfer+travel_time)
-#       )
-#    end
-#    saturn_transfer += 377.8114
-# end

@@ -16,14 +16,15 @@ ActiveRecord::Schema.define(version: 2020_01_17_215956) do
   enable_extension "plpgsql"
 
   create_table "flights", force: :cascade do |t|
-    t.bigint "planet_id", null: false
+    t.integer "origin_id"
+    t.integer "destination_id"
     t.string "ship_name"
     t.integer "capacity"
     t.datetime "departure"
     t.datetime "arrival"
+    t.integer "days"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["planet_id"], name: "index_flights_on_planet_id"
   end
 
   create_table "planets", force: :cascade do |t|
@@ -41,6 +42,5 @@ ActiveRecord::Schema.define(version: 2020_01_17_215956) do
     t.index ["flight_id"], name: "index_tickets_on_flight_id"
   end
 
-  add_foreign_key "flights", "planets"
   add_foreign_key "tickets", "flights"
 end
