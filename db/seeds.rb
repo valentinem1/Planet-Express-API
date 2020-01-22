@@ -97,7 +97,11 @@ ships = [
    }
 ]
 
+# Because oribital mechanics are complicated, I had to find a middle ground between coding all the math in the back end 
+
 transfers = [
+
+# from earth
    {
       origin: earth,
       destination: mercury,
@@ -147,6 +151,9 @@ transfers = [
       interval: 367.2265,
       days: 11181
    },
+
+
+# from mercury
    {
       origin: mercury,
       destination: earth,
@@ -154,12 +161,32 @@ transfers = [
       interval: 115.7779,
       days: 106
    },
+
+
+# from venus
    {
       origin: venus,
       destination: earth,
       date: Date.new(1999, 6, 23),
       interval: 583.5255,
       days: 146
+   },
+
+
+# from mars
+   {
+      origin: mars,
+      destination: mercury,
+      date: Date.new(2000, 3, 26),
+      interval: 101.0028,
+      days: 171
+   },
+   {
+      origin: mars,
+      destination: venus,
+      date: Date.new(2019, 3, 18),
+      interval: 333.683,
+      days: 217
    },
    {
       origin: mars,
@@ -168,6 +195,36 @@ transfers = [
       interval: 779.421,
       days: 259
    },
+   # {
+   #    origin: mars,
+   #    destination: jupiter,
+   #    date: Date.new(, , ),
+   #    interval: ,
+   #    days: 
+   # },
+   # {
+   #    origin: mars,
+   #    destination: saturn,
+   #    date: Date.new(, , ),
+   #    interval: ,
+   #    days: 
+   # },
+   # {
+   #    origin: mars,
+   #    destination: uranus,
+   #    date: Date.new(, , ),
+   #    interval: ,
+   #    days: 
+   # },
+   # {
+   #    origin: mars,
+   #    destination: neptune,
+   #    date: Date.new(, , ),
+   #    interval: ,
+   #    days: 
+   # },
+
+# from jupiter
    {
       origin: jupiter,
       destination: earth,
@@ -175,6 +232,9 @@ transfers = [
       interval: 398.5800,
       days: 997
    },
+
+
+# from saturn
    {
       origin: saturn,
       destination: earth,
@@ -182,6 +242,9 @@ transfers = [
       interval: 377.8114,
       days: 2207
    },
+
+
+# from uranus
    {
       origin: uranus,
       destination: earth,
@@ -189,6 +252,9 @@ transfers = [
       interval: 369.38,
       days: 5858
    },
+
+
+# from neptune
    {
       origin: neptune,
       destination: earth,
