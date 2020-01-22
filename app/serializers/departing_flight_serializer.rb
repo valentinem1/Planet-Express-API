@@ -1,5 +1,5 @@
 class DepartingFlightSerializer < ActiveModel::Serializer
-attributes {:origin, only: [:id, :name]}
+attributes :origin, :id, :destination
 
 end
 
