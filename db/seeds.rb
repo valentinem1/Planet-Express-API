@@ -13,35 +13,35 @@ Planet.destroy_all
 planets = {
    mercury: {
       name: "Mercury",
-      image: "https://cnet4.cbsistatic.com/img/eNbe9KkmNAYVSuw0ORDdAGX2oZA=/2019/11/07/cd0b412a-fa1a-4b59-8318-ad1d65234af3/nasamercury.jpg"
+      image: "https://solarsystem.nasa.gov/system/feature_items/images/18_mercury_new.png"
    },
    venus: {
       name: "Venus",
-      image: "https://www.universetoday.com/wp-content/uploads/2017/08/venus-e1502994496509.jpg"
+      image: "https://solarsystem.nasa.gov/system/feature_items/images/27_venus_jg.png"
    },
    earth: {
       name: "Earth",
-      image: "https://media.npr.org/assets/img/2013/03/06/bluemarble3k-smaller-nasa_custom-644f0b7082d6d0f6814a9e82908569c07ea55ccb-s800-c85.jpg"
+      image: "https://solarsystem.nasa.gov/system/feature_items/images/17_earth.png"
    },
    mars: {
       name: "Mars",
-      image: "https://www.classicalwcrb.org/sites/wcrb/files/styles/medium/public/201609/mars-614x412.jpg"
+      image: "https://solarsystem.nasa.gov/system/feature_items/images/19_mars.png"
    },
    jupiter: {
       name: "Jupiter",
-      image: "https://cosmos-magazine.imgix.net/file/spina/photo/10734/170613_Jupiter_Full.jpg?fit=clip&w=835"
+      image: "https://solarsystem.nasa.gov/system/feature_items/images/16_jupiter_new.png"
    },
    saturn: {
       name: "Saturn",
-      image: "https://mk0astronomynow9oh6g.kinstacdn.com/wp-content/uploads/2019/06/Saturn_at_opposition_9Jul2019_1564x1173.png"
+      image: "https://solarsystem.nasa.gov/system/feature_items/images/28_saturn.png"
    },
    uranus: {
       name: "Uranus",
-      image: "https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fstartswithabang%2Ffiles%2F2019%2F01%2Furanus-1200x800.jpg"
+      image: "https://solarsystem.nasa.gov/system/feature_items/images/29_uranus.png"
    },
    neptune: {
       name: "Neptune",
-      image: "https://s3.amazonaws.com/images.spaceref.com/news/2019/ooneptune.jpg"
+      image: "https://solarsystem.nasa.gov/system/feature_items/images/30_neptune.png"
    }
 }
 
@@ -97,11 +97,13 @@ ships = [
    }
 ]
 
-# Because oribital mechanics are complicated, I had to find a middle ground between coding all the math in the back end 
+# Because oribital mechanics are complicated, I had to find a middle ground between coding all the math in the back end.
+# This method, while repetitive, is still less repetitive than entering each transfer date manually.
+# The intervals and travel times are based on a model of the solar system with circular orbits, which inaccurate.
+# But it's close enough, and is more interesting than not doing any orbital math at all.
+# And it's far less complicated than running a calculation to simulate the positions of all the planets in the solar system so...
 
-transfers = [
-
-# from earth
+transfers_from_earth = [
    {
       origin: earth,
       destination: mercury,
@@ -151,9 +153,9 @@ transfers = [
       interval: 367.2265,
       days: 11181
    },
+]
 
-
-# from mercury
+transfers_from_mercury = [
    {
       origin: mercury,
       destination: earth,
@@ -161,9 +163,9 @@ transfers = [
       interval: 115.7779,
       days: 106
    },
+]
 
-
-# from venus
+transfers_from_venus = [
    {
       origin: venus,
       destination: earth,
@@ -171,9 +173,9 @@ transfers = [
       interval: 583.5255,
       days: 146
    },
+]
 
-
-# from mars
+transfers_from_mars = [
    {
       origin: mars,
       destination: mercury,
@@ -223,8 +225,9 @@ transfers = [
    #    interval: ,
    #    days: 
    # },
+]
 
-# from jupiter
+transfers_from_jupiter =[
    {
       origin: jupiter,
       destination: earth,
@@ -232,9 +235,9 @@ transfers = [
       interval: 398.5800,
       days: 997
    },
+]
 
-
-# from saturn
+transfers_from_saturn =[
    {
       origin: saturn,
       destination: earth,
@@ -242,9 +245,9 @@ transfers = [
       interval: 377.8114,
       days: 2207
    },
+]
 
-
-# from uranus
+transfers_from_uranus =[
    {
       origin: uranus,
       destination: earth,
@@ -252,39 +255,55 @@ transfers = [
       interval: 369.38,
       days: 5858
    },
+]
 
-
-# from neptune
+transfers_from_neptune = [
    {
       origin: neptune,
       destination: earth,
       date: Date.new(2000, 6, 15),
       interval: 367.2265,
       days: 11181
-   }
+   },
 ]
 
 first_year = 2020
 last_year = 2050
 
-# create Flights
-transfers.each do |transfer|
-   transfer_date = transfer[:date]
-   days = transfer[:days]
-   while transfer_date.year <= last_year do
-      ship = ships.sample
-      if transfer_date.year >= first_year
-         Flight.create(
-            origin: transfer[:origin],
-            destination: transfer[:destination], 
-            ship_name: ship[:name], 
-            capacity: ship[:capacity], 
-            departure: transfer_date,
-            days: days,
-            arrival: (transfer_date+days)
-         )
+def createFlights(transfers)
+   transfers.each do |transfer|
+      transfer_date = transfer[:date]
+      days = transfer[:days]
+      while transfer_date.year <= last_year do
+         ship = ships.sample
+         if transfer_date.year >= first_year
+            Flight.create(
+               origin: transfer[:origin],
+               destination: transfer[:destination], 
+               ship_name: ship[:name], 
+               capacity: ship[:capacity], 
+               departure: transfer_date,
+               days: days,
+               arrival: (transfer_date+days)
+            )
+         end
+         transfer_date += transfer[:interval]
       end
-      transfer_date += transfer[:interval]
    end
 end
 
+createFlights(transfers_from_mercury)
+
+createFlights(transfers_from_venus)
+
+createFlights(transfers_from_earth)
+
+createFlights(transfers_from_mars)
+
+createFlights(transfers_from_jupiter)
+
+createFlights(transfers_from_saturn)
+
+createFlights(transfers_from_uranus)
+
+createFlights(transfers_from_neptune)

@@ -6,7 +6,7 @@ class DepartingFlightsController < ApplicationController
          DepartingFlightSerializer.new(df).as_json
       end
       render json: json
-      # to_json(include: {
+      # render json: @planet.departing_flights.to_json(include: {
       #    origin: {
       #       only: :id
       #    },
@@ -14,9 +14,10 @@ class DepartingFlightsController < ApplicationController
       #       only: :id
       #    }
       # },
+      # # only: :remaining_tickets,
       # except: [:created_at, :updated_at]
       # )
    end
-
+   
 end
 
