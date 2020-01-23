@@ -267,10 +267,10 @@ transfers_from_neptune = [
    },
 ]
 
-first_year = 2020
-last_year = 2050
 
-def createFlights(transfers)
+def createFlights(transfers, ships)
+   first_year = 2020
+   last_year = 2050
    transfers.each do |transfer|
       transfer_date = transfer[:date]
       days = transfer[:days]
@@ -292,18 +292,19 @@ def createFlights(transfers)
    end
 end
 
-createFlights(transfers_from_mercury)
+createFlights(transfers_from_mercury, ships)
 
-createFlights(transfers_from_venus)
+createFlights(transfers_from_venus, ships)
 
-createFlights(transfers_from_earth)
+createFlights(transfers_from_earth, ships)
 
-createFlights(transfers_from_mars)
+createFlights(transfers_from_mars, ships)
 
-createFlights(transfers_from_jupiter)
+createFlights(transfers_from_jupiter, ships)
 
-createFlights(transfers_from_saturn)
+createFlights(transfers_from_saturn, ships)
 
-createFlights(transfers_from_uranus)
+createFlights(transfers_from_uranus, ships)
 
-createFlights(transfers_from_neptune)
+createFlights(transfers_from_neptune, ships)
+
