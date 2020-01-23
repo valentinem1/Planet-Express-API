@@ -8,5 +8,13 @@ class TicketsController < ApplicationController
         ticket = Ticket.find(params[:id])
         render json: ticket
     end
+
+    def create
+
+        ticket = Ticket.create(params.permit(:flight_id, :price))
+
+        render json: ticket
+    end
+
 end
 
