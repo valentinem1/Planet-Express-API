@@ -11,7 +11,7 @@ class TicketsController < ApplicationController
 
     def create
 
-        ticket = Ticket.create(params.permit(:flight_id, :price, :passenger_count, :passenger_name))
+        ticket = Ticket.create(params.permit(:flight_id, :price, :passenger_count, :passenger_names))
 
         render json: ticket
     end
