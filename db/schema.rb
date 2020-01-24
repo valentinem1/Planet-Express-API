@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 2020_01_17_215956) do
   create_table "tickets", force: :cascade do |t|
     t.bigint "flight_id", null: false
     t.integer "price"
+    t.string "passenger_names"
+    t.integer "passenger_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["flight_id"], name: "index_tickets_on_flight_id"
