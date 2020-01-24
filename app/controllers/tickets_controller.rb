@@ -16,5 +16,11 @@ class TicketsController < ApplicationController
         render json: ticket
     end
 
+    def destroy
+        ticket = Ticket.find(params[:id])
+        ticket.destroy
+        render json: ticket
+    end
+
 end
 
