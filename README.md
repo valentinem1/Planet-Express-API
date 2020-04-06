@@ -2,7 +2,7 @@
 
 A `JavaScript and Rails` Web App providing tickets to the solar system with realistic orbital transfer windows and travel times.<br/>
 
-***Link to ➡️ [Demo](https://www.youtube.com/watch?v=oP7dmeB0Y3E)***<br/>
+*** ➡️ Link to [Demo](https://www.youtube.com/watch?v=oP7dmeB0Y3E)***<br/>
 
 ## Technologies
 
